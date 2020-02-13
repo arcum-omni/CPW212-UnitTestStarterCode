@@ -1,10 +1,5 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using CPW212_UnitTestStarterCode;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace CPW212_UnitTestStarterCode.Tests
 {
@@ -16,43 +11,43 @@ namespace CPW212_UnitTestStarterCode.Tests
         [DataRow(0, 100)]
         [DataRow(-1, -10)]
         [DataRow(0, -0)]
-        public void Add_TwoNumbers_ReturnsSum(double num1, double num2)
+        public void Add_TwoNumbers_ReturnsSum(double augend, double addend)
         {
             // Arrange => Act
-            double sum = SimpleMath.Add(num1, num2);
+            double sum = SimpleMath.Add(augend, addend);
 
             // Assert
-            Assert.AreEqual(num1 + num2, sum);
+            Assert.AreEqual(augend + addend, sum);
         }
 
         [TestMethod]
         public void Multiply_TwoNumbers_ReturnsProduct()
         {
             // Arrange => Act
-            double num1 = 0.0;
-            double num2 = 10.0;
-            double sum1 = SimpleMath.Multiply(num1, num2);
+            double multiplicand1 = 0.0;
+            double multiplier1 = 10.0;
+            double product1 = SimpleMath.Multiply(multiplicand1, multiplier1);
 
-            double num3 = 2.0;
-            double num4 = 20.0;
-            double sum2 = SimpleMath.Multiply(num3, num4);
+            double multiplicand2 = 2.0;
+            double multiplier2 = 20.0;
+            double product2 = SimpleMath.Multiply(multiplicand2, multiplier2);
 
-            double num5 = 1000000.0;
-            double num6 = 2000000.0;
-            double sum3 = SimpleMath.Multiply(num5, num6);
+            double multiplicand3 = 1000000.0;
+            double multiplier3 = 2000000.0;
+            double product3 = SimpleMath.Multiply(multiplicand3, multiplier3);
 
             // Assert
-            Assert.AreEqual(num1 * num2, sum1);
-            Assert.AreEqual(num3 * num4, sum2);
-            Assert.AreEqual(num5 * num6, sum3);
+            Assert.AreEqual(multiplicand1 * multiplier1, product1);
+            Assert.AreEqual(multiplicand2 * multiplier2, product2);
+            Assert.AreEqual(multiplicand3 * multiplier3, product3);
         }
 
         [TestMethod]
         public void Divide_DenominatorZero_ThrowsArgumentException()
         {
             // Arrange => Act
-            int numerator = 10;
-            int denominator = 0;
+            double numerator = 10.0;
+            double denominator = 0.0;
 
             // Assert
             Assert.ThrowsException<DivideByZeroException>(() => SimpleMath.Divide(numerator, denominator));
